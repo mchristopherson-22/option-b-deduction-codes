@@ -2,7 +2,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { DeductionCategory } from "./types";
 
 export const generateUniqueCode = async (planName: string, providerName: string, category: string): Promise<string> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
     contents: `Generate a unique, short, professional payroll code (uppercase alphanumeric) for an HR deduction. 
